@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MainFrame.h">
+    <ClInclude Include="PagrKodoVoid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Programele.h">
@@ -23,7 +23,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MainFrame.cpp">
+    <ClCompile Include="PagrKodas.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Programele.cpp">

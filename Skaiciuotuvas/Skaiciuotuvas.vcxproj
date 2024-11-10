@@ -19,11 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MainFrame.h" />
+    <ClInclude Include="PagrKodoVoid.h" />
     <ClInclude Include="Programele.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MainFrame.cpp" />
+    <ClCompile Include="PagrKodas.cpp" />
     <ClCompile Include="Programele.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

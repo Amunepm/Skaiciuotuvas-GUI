@@ -133,7 +133,6 @@ MainFrame::MainFrame(const wxString& Skaiciuotuvas): wxFrame(nullptr, wxID_ANY, 
 
 string skaicius = "0";
 
-
 // Operatoriu priskirimas
 
 bool Operatorius(char operatorius)
@@ -678,11 +677,19 @@ void MainFrame::LyguMygtukas(wxCommandEvent& event)
 				}
 				else if (skaiciusLaikinas.find("LOG10(") != string::npos)
 				{
-					int pradzia = skaiciusLaikinas.find("LOG10(") + 6;
-					int pabaiga = skaiciusLaikinas.find(")", pradzia);
-					string LogaritmoArgumentas = skaiciusLaikinas.substr(pradzia, pabaiga - pradzia);
-					double Logoritmas = stod(LogaritmoArgumentas);
-					rezultatas = log10(Logoritmas);
+					if (skaiciusLaikinas.find("LOG10(0)") != string::npos)
+					{
+						wxMessageBox("Nulis negali buti logaritme!");
+						rezultatas = 0;
+					}
+					else
+					{
+						int pradzia = skaiciusLaikinas.find("LOG10(") + 6;
+						int pabaiga = skaiciusLaikinas.find(")", pradzia);
+						string LogaritmoArgumentas = skaiciusLaikinas.substr(pradzia, pabaiga - pradzia);
+						double Logoritmas = stod(LogaritmoArgumentas);
+						rezultatas = log10(Logoritmas);
+					}
 				}
 				else
 				{
