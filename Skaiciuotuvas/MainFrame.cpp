@@ -536,7 +536,6 @@ void MainFrame::OnButton10Clicked(wxCommandEvent& event) {
 	{
 		skaicius += "0";
 	}
-	// Padaryti taip, kad jei prieki yra nulis tai neleistu rasyti po nulio betkoki skaiciu arba nuli nebent tai yra simtas arba po nulio kablelis.
 	ekranas->SetLabel(skaicius);
 }
 void MainFrame::TaskelioMygtukas(wxCommandEvent& event) {
@@ -584,7 +583,7 @@ void MainFrame::TaskelioMygtukas(wxCommandEvent& event) {
 
 	// Ši sąlyga skirta patikrinti, ar dabartiniame skaičiuje po operatoriaus jau yra taškas
 	if (PakeistinisSkaicius.find('.') == string::npos) {  // Čia `npos` reiškia, kad paieškos rezultatas - "nerasta", todėl, jei taškas nerastas, sąlyga suveiks
-		// Jei taško nėra, leidžiame jį pridėti prie dabartinio skaičiaus
+		 //Jei taško nėra, leidžiame jį pridėti prie dabartinio skaičiaus
 		skaicius += ".";
 	}
 
