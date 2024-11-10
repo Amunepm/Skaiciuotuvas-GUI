@@ -679,7 +679,7 @@ void MainFrame::LyguMygtukas(wxCommandEvent& event)
 				{
 					if (skaiciusLaikinas.find("LOG10(0)") != string::npos)
 					{
-						wxMessageBox("Skaiciu negalima dalyti is nulio!");
+						wxMessageBox("Nulis negali buti logaritme!");
 						rezultatas = 0;
 					}
 					else
