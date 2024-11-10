@@ -132,7 +132,6 @@ MainFrame::MainFrame(const wxString& Skaiciuotuvas): wxFrame(nullptr, wxID_ANY, 
 //Kintamuju apsibrezimas
 
 string skaicius = "0";
-int labas;
 
 // Operatoriu priskirimas
 
