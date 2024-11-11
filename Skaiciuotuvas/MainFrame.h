@@ -5,16 +5,16 @@ class MainFrame : public wxFrame
 public:
 	MainFrame(const wxString& Skaiciuotuvas);
 private:
-	void OnButton1Clicked(wxCommandEvent& event); // Kad veiktu musu eventas kai paspaudziame mygtuka
-	void OnButton2Clicked(wxCommandEvent& event);
-	void OnButton3Clicked(wxCommandEvent& event);
-	void OnButton4Clicked(wxCommandEvent& event);
-	void OnButton5Clicked(wxCommandEvent& event);
-	void OnButton6Clicked(wxCommandEvent& event);
-	void OnButton7Clicked(wxCommandEvent& event);
-	void OnButton8Clicked(wxCommandEvent& event);
-	void OnButton9Clicked(wxCommandEvent& event);
-	void OnButton10Clicked(wxCommandEvent& event);
+	void Nr1(wxCommandEvent& event); // Kad veiktu musu eventas kai paspaudziame mygtuka
+	void Nr2(wxCommandEvent& event);
+	void Nr3(wxCommandEvent& event);
+	void Nr4(wxCommandEvent& event);
+	void Nr5(wxCommandEvent& event);
+	void Nr6(wxCommandEvent& event);
+	void Nr7(wxCommandEvent& event);
+	void Nr8(wxCommandEvent& event);
+	void Nr9(wxCommandEvent& event);
+	void Nr0(wxCommandEvent& event);
 	void TaskelioMygtukas(wxCommandEvent& event);
 	void SudetiesMygtukas(wxCommandEvent& event);
 	void AtimtiesMygtukas(wxCommandEvent& event);

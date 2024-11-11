@@ -15,7 +15,7 @@ MainFrame::MainFrame(const wxString& Skaiciuotuvas): wxFrame(nullptr, wxID_ANY, 
 
 	//Tekstas
 
-	ekranas = new wxStaticText(panel, wxID_ANY, "0", wxPoint(0, 50),wxSize(800,-1),wxALIGN_CENTER); // Si kodo eilute mums parodo parasyta teksta, programeleje teksto negalima bus redaguoti
+	ekranas = new wxStaticText(panel, wxID_ANY,"0", wxPoint(0, 50), wxSize(800, -1), wxALIGN_CENTER); // Si kodo eilute mums parodo parasyta teksta, programeleje teksto negalima bus redaguoti
 
 	//Ekrano pagrazinimas skirtas tekstui
 	
@@ -103,16 +103,16 @@ MainFrame::MainFrame(const wxString& Skaiciuotuvas): wxFrame(nullptr, wxID_ANY, 
 
 	//Eventu bindai
 
-	nr1->Bind(wxEVT_BUTTON, &MainFrame::OnButton1Clicked, this);
-	nr2->Bind(wxEVT_BUTTON, &MainFrame::OnButton2Clicked, this);
-	nr3->Bind(wxEVT_BUTTON, &MainFrame::OnButton3Clicked, this);
-	nr4->Bind(wxEVT_BUTTON, &MainFrame::OnButton4Clicked, this);
-	nr5->Bind(wxEVT_BUTTON, &MainFrame::OnButton5Clicked, this);
-	nr6->Bind(wxEVT_BUTTON, &MainFrame::OnButton6Clicked, this);
-	nr7->Bind(wxEVT_BUTTON, &MainFrame::OnButton7Clicked, this);
-	nr8->Bind(wxEVT_BUTTON, &MainFrame::OnButton8Clicked, this);
-	nr9->Bind(wxEVT_BUTTON, &MainFrame::OnButton9Clicked, this);
-	nr0->Bind(wxEVT_BUTTON, &MainFrame::OnButton10Clicked, this);
+	nr1->Bind(wxEVT_BUTTON, &MainFrame::Nr1, this);
+	nr2->Bind(wxEVT_BUTTON, &MainFrame::Nr2, this);
+	nr3->Bind(wxEVT_BUTTON, &MainFrame::Nr3, this);
+	nr4->Bind(wxEVT_BUTTON, &MainFrame::Nr4, this);
+	nr5->Bind(wxEVT_BUTTON, &MainFrame::Nr5, this);
+	nr6->Bind(wxEVT_BUTTON, &MainFrame::Nr6, this);
+	nr7->Bind(wxEVT_BUTTON, &MainFrame::Nr7, this);
+	nr8->Bind(wxEVT_BUTTON, &MainFrame::Nr8, this);
+	nr9->Bind(wxEVT_BUTTON, &MainFrame::Nr9, this);
+	nr0->Bind(wxEVT_BUTTON, &MainFrame::Nr0, this);
 	taskelis->Bind(wxEVT_BUTTON, &MainFrame::TaskelioMygtukas, this);
 	sudetis->Bind(wxEVT_BUTTON, &MainFrame::SudetiesMygtukas, this);
 	atimtis->Bind(wxEVT_BUTTON, &MainFrame::AtimtiesMygtukas, this);
@@ -142,7 +142,7 @@ bool Operatorius(char operatorius)
 
 //Eventu voidai su zinute
 
-void MainFrame::OnButton1Clicked(wxCommandEvent& event) {
+void MainFrame::Nr1(wxCommandEvent& event) {
 
 	int operatoriausPozicija = skaicius.find_last_of("+-x÷");
 
@@ -183,7 +183,7 @@ void MainFrame::OnButton1Clicked(wxCommandEvent& event) {
 
 	ekranas->SetLabel(skaicius);  // Atnaujiname ekraną (wxStaticText) su naujai suformuotu tekstu (skaičiumi).
 }
-void MainFrame::OnButton2Clicked(wxCommandEvent& event) {
+void MainFrame::Nr2(wxCommandEvent& event) {
 
 	int operatoriausPozicija = skaicius.find_last_of("+-x÷");
 
@@ -222,7 +222,7 @@ void MainFrame::OnButton2Clicked(wxCommandEvent& event) {
 	}
 	ekranas->SetLabel(skaicius);
 }
-void MainFrame::OnButton3Clicked(wxCommandEvent& event) {
+void MainFrame::Nr3(wxCommandEvent& event) {
 
 	int operatoriausPozicija = skaicius.find_last_of("+-x÷");
 
@@ -261,7 +261,7 @@ void MainFrame::OnButton3Clicked(wxCommandEvent& event) {
 	}
 	ekranas->SetLabel(skaicius);
 }
-void MainFrame::OnButton4Clicked(wxCommandEvent& event) {
+void MainFrame::Nr4(wxCommandEvent& event) {
 
 	int operatoriausPozicija = skaicius.find_last_of("+-x÷");
 
@@ -304,7 +304,7 @@ void MainFrame::OnButton4Clicked(wxCommandEvent& event) {
 	}
 	ekranas->SetLabel(skaicius);
 }
-void MainFrame::OnButton5Clicked(wxCommandEvent& event) {
+void MainFrame::Nr5(wxCommandEvent& event) {
 
 	int operatoriausPozicija = skaicius.find_last_of("+-x÷");
 
@@ -343,7 +343,7 @@ void MainFrame::OnButton5Clicked(wxCommandEvent& event) {
 	}
 	ekranas->SetLabel(skaicius);
 }
-void MainFrame::OnButton6Clicked(wxCommandEvent& event) {
+void MainFrame::Nr6(wxCommandEvent& event) {
 
 	int operatoriausPozicija = skaicius.find_last_of("+-x÷");
 
@@ -382,7 +382,7 @@ void MainFrame::OnButton6Clicked(wxCommandEvent& event) {
 	}
 	ekranas->SetLabel(skaicius);
 }
-void MainFrame::OnButton7Clicked(wxCommandEvent& event) {
+void MainFrame::Nr7(wxCommandEvent& event) {
 
 	int operatoriausPozicija = skaicius.find_last_of("+-x÷");
 
@@ -421,7 +421,7 @@ void MainFrame::OnButton7Clicked(wxCommandEvent& event) {
 	}
 	ekranas->SetLabel(skaicius);
 }
-void MainFrame::OnButton8Clicked(wxCommandEvent& event) {
+void MainFrame::Nr8(wxCommandEvent& event) {
 
 	int operatoriausPozicija = skaicius.find_last_of("+-x÷");
 
@@ -460,7 +460,7 @@ void MainFrame::OnButton8Clicked(wxCommandEvent& event) {
 	}
 	ekranas->SetLabel(skaicius);
 }
-void MainFrame::OnButton9Clicked(wxCommandEvent& event) {
+void MainFrame::Nr9(wxCommandEvent& event) {
 
 	int operatoriausPozicija = skaicius.find_last_of("+-x÷");
 
@@ -499,7 +499,7 @@ void MainFrame::OnButton9Clicked(wxCommandEvent& event) {
 	}
 	ekranas->SetLabel(skaicius);
 }
-void MainFrame::OnButton10Clicked(wxCommandEvent& event) {
+void MainFrame::Nr0(wxCommandEvent& event) {
 
 	int operatoriausPozicija = skaicius.find_last_of("+-x÷");
 
@@ -536,6 +536,198 @@ void MainFrame::OnButton10Clicked(wxCommandEvent& event) {
 	{
 		skaicius += "0";
 	}
+	ekranas->SetLabel(skaicius);
+}
+void MainFrame::SudetiesMygtukas(wxCommandEvent& event) {
+
+	if (!skaicius.empty() && Operatorius(skaicius.back())) { // Musu kodas tikrina ar tai yra operatorius ir ar skaiciai nera tusti. Jei tai operatorius neprides daugiau +, jei norim kita operatoriu apkeisti su + tada back pagalba apkeis.
+		skaicius.back() = '+';
+	}
+	else {
+		skaicius += "+";
+	}
+
+	ekranas->SetLabel(skaicius);
+}
+void MainFrame::AtimtiesMygtukas(wxCommandEvent& event) {
+
+	if (!skaicius.empty() && Operatorius(skaicius.back())) {
+		skaicius.back() = '-';
+	}
+	else {
+		skaicius += "-";
+	}
+	ekranas->SetLabel(skaicius);
+}
+void MainFrame::DaugybosMygtukas(wxCommandEvent& event) {
+	if (!skaicius.empty() && Operatorius(skaicius.back())) {
+		skaicius.back() = 'x';
+	}
+	else {
+		skaicius += "x";
+	}
+	ekranas->SetLabel(skaicius);
+}
+void MainFrame::DalybosMygtukas(wxCommandEvent& event) {
+
+	if (!skaicius.empty() && Operatorius(skaicius.back())) {
+		skaicius.back() = '÷';
+	}
+	else {
+		skaicius += "÷";
+	}
+	ekranas->SetLabel(skaicius);
+}
+void MainFrame::ProcentuMygtukas(wxCommandEvent& event)
+{
+
+	if (skaicius.find("%") != string::npos)
+	{
+		return;
+	}
+
+	if (!skaicius.empty() && Operatorius(skaicius.back()))
+	{
+		skaicius.back() = '%';
+	}
+	else
+	{
+		skaicius += "%";
+	}
+
+	ekranas->SetLabel(skaicius);
+}
+void MainFrame::SkaiciausPasalinimoMygtukas(wxCommandEvent& event) {
+
+	if (skaicius.size() > 1) // tikriname ar skaicius nera lygus 0
+	{
+		skaicius.pop_back(); // Tada saliname ta skaiciu naudodami pop_back - pop_back funkcija pasalina paskutini elementa
+	}
+	else
+	{
+		skaicius = "0"; // Si eilute nubrezia jei tik buna vienas skaicius arba nulis. Tarkime jei skaicius bus 5 tada is 5 gausis 0. O jei nulis tada gausis 0
+	}
+	ekranas->SetLabel(skaicius);
+}
+void MainFrame::VisosFunkcijosSalinimoMygtukas(wxCommandEvent& event) {
+
+	skaicius = "0";
+	ekranas->SetLabel(skaicius);
+}
+void MainFrame::SakniesMygtukas(wxCommandEvent& event)
+{
+
+	int PaskutinisOperatorius = skaicius.find_last_of("+-x÷");
+
+	string PakeistinisSkaicius;
+
+	if (PaskutinisOperatorius != string::npos)
+	{
+		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
+	}
+	else
+	{
+		PakeistinisSkaicius = skaicius;
+	}
+
+	if (PakeistinisSkaicius.find("SQRT(") == string::npos)
+	{
+		skaicius = skaicius.substr(0, PaskutinisOperatorius + 1) + "SQRT(" + PakeistinisSkaicius + ")";
+	}
+
+	ekranas->SetLabel(skaicius);
+
+}
+void MainFrame::SkaiciausKelimoKvadratuMygtukas(wxCommandEvent& event)
+{
+
+	int PaskutinisOperatorius = skaicius.find_last_of("+-x÷");
+
+	string PakeistinisSkaicius;
+
+	if (PaskutinisOperatorius != string::npos)
+	{
+		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
+	}
+	else
+	{
+		PakeistinisSkaicius = skaicius;
+	}
+
+	if (PakeistinisSkaicius.find("POW(") == string::npos)
+	{
+		skaicius = skaicius.substr(0, PaskutinisOperatorius + 1) + "POW(" + PakeistinisSkaicius + ")";
+	}
+
+	ekranas->SetLabel(skaicius);
+
+}
+void MainFrame::SinusoMygtukas(wxCommandEvent& event)
+{
+
+	int PaskutinisOperatorius = skaicius.find_last_of("+-x÷");
+
+	string PakeistinisSkaicius;
+
+	if (PaskutinisOperatorius != string::npos) {
+		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
+	}
+	else {
+		PakeistinisSkaicius = skaicius;
+	}
+
+	if (PakeistinisSkaicius.find("SIN(") == string::npos)
+	{
+		skaicius = skaicius.substr(0, PaskutinisOperatorius + 1) + "SIN(" + PakeistinisSkaicius + ")";
+		// Ši eilutė paima išraišką iki paskutinio operatoriaus (įskaitant operatorių), o tada prideda "sin()" funkciją tam skaičiui, kuris yra po operatoriaus. 
+		// Jei operatoriaus nėra, sin() taikoma visam esamam skaičiui.
+	}
+
+	ekranas->SetLabel(skaicius);
+}
+void MainFrame::KosinusoMygtukas(wxCommandEvent& event)
+{
+
+	int PaskutinisOperatorius = skaicius.find_last_of("+-x÷");
+
+	string PakeistinisSkaicius;
+
+	if (PaskutinisOperatorius != string::npos)
+	{
+		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
+	}
+	else
+	{
+		PakeistinisSkaicius = skaicius;
+	}
+
+	if (PakeistinisSkaicius.find("COS(") == string::npos)
+	{
+		skaicius = skaicius.substr(0, PaskutinisOperatorius + 1) + "COS(" + PakeistinisSkaicius + ")";
+	}
+
+	ekranas->SetLabel(skaicius);
+}
+void MainFrame::LogaritmoMygtukas(wxCommandEvent& event)
+{
+	int PaskutinisOperatorius = skaicius.find_last_of("+-x÷");
+
+	string PakeistinisSkaicius;
+
+	if (PaskutinisOperatorius != string::npos)
+	{
+		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
+	}
+	else
+	{
+		PakeistinisSkaicius = skaicius;
+	}
+
+	if (PakeistinisSkaicius.find("LOG10(") == string::npos)
+	{
+		skaicius = skaicius.substr(0, PaskutinisOperatorius + 1) + "LOG10(" + PakeistinisSkaicius + ")";
+	}
+
 	ekranas->SetLabel(skaicius);
 }
 void MainFrame::TaskelioMygtukas(wxCommandEvent& event) {
@@ -590,46 +782,6 @@ void MainFrame::TaskelioMygtukas(wxCommandEvent& event) {
 
 	ekranas->SetLabel(skaicius);
 }
-void MainFrame::SudetiesMygtukas(wxCommandEvent& event) {
-
-	if (!skaicius.empty() && Operatorius(skaicius.back())) { // Musu kodas tikrina ar tai yra operatorius ir ar skaiciai nera tusti. Jei tai operatorius neprides daugiau +, jei norim kita operatoriu apkeisti su + tada back pagalba apkeis.
-		skaicius.back() = '+';
-	}
-	else {
-		skaicius += "+";
-	}
-
-	ekranas->SetLabel(skaicius);
-}
-void MainFrame::AtimtiesMygtukas(wxCommandEvent& event) {
-
-	if (!skaicius.empty() && Operatorius(skaicius.back())) {
-		skaicius.back() = '-';
-	}
-	else {
-		skaicius += "-";
-	}
-	ekranas->SetLabel(skaicius);
-}
-void MainFrame::DaugybosMygtukas(wxCommandEvent& event) {
-	if (!skaicius.empty() && Operatorius(skaicius.back())) {
-		skaicius.back() = 'x';
-	}
-	else {
-		skaicius += "x";
-	}
-	ekranas->SetLabel(skaicius);
-}
-void MainFrame::DalybosMygtukas(wxCommandEvent& event) {
-
-	if (!skaicius.empty() && Operatorius(skaicius.back())) {
-		skaicius.back() = '÷';
-	}
-	else {
-		skaicius += "÷";
-	}
-	ekranas->SetLabel(skaicius);
-}
 void MainFrame::LyguMygtukas(wxCommandEvent& event)
 {
 	long double rezultatas = 0.0;
@@ -647,16 +799,16 @@ void MainFrame::LyguMygtukas(wxCommandEvent& event)
 					int pradzia = skaiciusLaikinas.find("SIN(") + 4;
 					int pabaiga = skaiciusLaikinas.find(")", pradzia);
 					string sinArgumentas = skaiciusLaikinas.substr(pradzia, pabaiga - pradzia);
-					double SinValue = stod(sinArgumentas);
-					rezultatas = sin(SinValue * M_PI / 180);
+					double Sin = stod(sinArgumentas);
+					rezultatas = sin(Sin * M_PI / 180);
 				}
 				else if (skaiciusLaikinas.find("COS(") != string::npos)
 				{
 					int pradzia = skaiciusLaikinas.find("COS(") + 4;
 					int pabaiga = skaiciusLaikinas.find(")", pradzia);
 					string cosArgumentas = skaiciusLaikinas.substr(pradzia, pabaiga - pradzia);
-					double CosValue = stod(cosArgumentas);
-					rezultatas = cos(CosValue * M_PI / 180);
+					double Cos = stod(cosArgumentas);
+					rezultatas = cos(Cos * M_PI / 180);
 				}
 				else if (skaiciusLaikinas.find("SQRT(") != string::npos)
 				{
@@ -751,157 +903,4 @@ void MainFrame::LyguMygtukas(wxCommandEvent& event)
 	string atsakymas = sstream.str();
 	skaicius = atsakymas;
 	ekranas->SetLabel(skaicius);  // Atnaujiname ekraną su rezultatu
-}
-
-void MainFrame::SkaiciausPasalinimoMygtukas(wxCommandEvent& event) {
-
-	if (skaicius.size() > 1) // tikriname ar skaicius nera lygus 0
-	{
-		skaicius.pop_back(); // Tada saliname ta skaiciu naudodami pop_back - pop_back funkcija pasalina paskutini elementa
-	}
-	else
-	{
-		skaicius = "0"; // Si eilute nubrezia jei tik buna vienas skaicius arba nulis. Tarkime jei skaicius bus 5 tada is 5 gausis 0. O jei nulis tada gausis 0
-	}
-	ekranas->SetLabel(skaicius);
-}
-void MainFrame::VisosFunkcijosSalinimoMygtukas(wxCommandEvent& event) {
-	
-	skaicius = "0";
-	ekranas->SetLabel(skaicius);
-}
-void MainFrame::SakniesMygtukas(wxCommandEvent& event)
-{
-
-	int PaskutinisOperatorius = skaicius.find_last_of("+-x÷");
-
-	string PakeistinisSkaicius;
-
-	if (PaskutinisOperatorius != string::npos)
-	{
-		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
-	} 
-	else
-	{
-		PakeistinisSkaicius = skaicius;
-	}
-
-	if (PakeistinisSkaicius.find("SQRT(") == string::npos)
-	{
-		skaicius = skaicius.substr(0, PaskutinisOperatorius + 1) + "SQRT(" + PakeistinisSkaicius + ")";
-	}
-
-	ekranas->SetLabel(skaicius);
-
-}
-void MainFrame::SkaiciausKelimoKvadratuMygtukas(wxCommandEvent& event)
-{
-
-	int PaskutinisOperatorius = skaicius.find_last_of("+-x÷");
-
-	string PakeistinisSkaicius;
-
-	if (PaskutinisOperatorius != string::npos)
-	{
-		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
-	}
-	else
-	{
-		PakeistinisSkaicius = skaicius;
-	}
-
-	if (PakeistinisSkaicius.find("POW(") == string::npos)
-	{
-		skaicius = skaicius.substr(0, PaskutinisOperatorius + 1) + "POW(" + PakeistinisSkaicius + ")";
-	}
-
-	ekranas->SetLabel(skaicius);
-
-}
-void MainFrame::ProcentuMygtukas(wxCommandEvent& event)
-{
-
-	if (skaicius.find("%") != string::npos)
-	{
-		return;
-	}
-
-	if (!skaicius.empty() && Operatorius(skaicius.back()))
-	{
-		skaicius.back() = '%';
-	}
-	else
-	{
-		skaicius += "%";
-	}
-
-	ekranas->SetLabel(skaicius);
-}
-void MainFrame::SinusoMygtukas(wxCommandEvent& event)
-{
-
-	int PaskutinisOperatorius = skaicius.find_last_of("+-x÷");
-
-	string PakeistinisSkaicius;
-	
-	if (PaskutinisOperatorius != string::npos) {
-		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
-	}
-	else {
-		PakeistinisSkaicius = skaicius;
-	}
-
-	if (PakeistinisSkaicius.find("SIN(") == string::npos)
-	{
-		skaicius = skaicius.substr(0, PaskutinisOperatorius + 1) + "SIN(" + PakeistinisSkaicius + ")";
-		// Ši eilutė paima išraišką iki paskutinio operatoriaus (įskaitant operatorių), o tada prideda "sin()" funkciją tam skaičiui, kuris yra po operatoriaus. 
-		// Jei operatoriaus nėra, sin() taikoma visam esamam skaičiui.
-	}
-
-	ekranas->SetLabel(skaicius);
-}
-void MainFrame::KosinusoMygtukas(wxCommandEvent& event)
-{
-
-	int PaskutinisOperatorius = skaicius.find_last_of("+-x÷");
-
-	string PakeistinisSkaicius;
-
-	if (PaskutinisOperatorius != string::npos)
-	{
-		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
-	}
-	else
-	{
-		PakeistinisSkaicius = skaicius;
-	}
-
-	if (PakeistinisSkaicius.find("COS(") == string::npos)
-	{
-		skaicius = skaicius.substr(0, PaskutinisOperatorius + 1) + "COS(" + PakeistinisSkaicius + ")";
-	}
-	
-	ekranas->SetLabel(skaicius);
-}
-void MainFrame::LogaritmoMygtukas(wxCommandEvent& event)
-{
-	int PaskutinisOperatorius = skaicius.find_last_of("+-x÷");
-
-	string PakeistinisSkaicius;
-
-	if (PaskutinisOperatorius != string::npos)
-	{
-		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
-	}
-	else
-	{
-		PakeistinisSkaicius = skaicius;
-	}
-	
-	if (PakeistinisSkaicius.find("LOG10(") == string::npos)
-	{
-		skaicius = skaicius.substr(0, PaskutinisOperatorius + 1) + "LOG10(" + PakeistinisSkaicius + ")";
-	}
-
-	ekranas->SetLabel(skaicius);
 }
