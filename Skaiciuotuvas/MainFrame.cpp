@@ -133,13 +133,6 @@ MainFrame::MainFrame(const wxString& Skaiciuotuvas): wxFrame(nullptr, wxID_ANY, 
 
 string skaicius = "0";
 
-// Operatoriu priskirimas
-
-bool Operatorius(char operatorius)
-{                                                                                                    
-	return(operatorius == '+' || operatorius == '-' || operatorius == 'x' || operatorius == '÷' ||  operatorius == '%');
-}
-
 //Eventu voidai su zinute
 
 void MainFrame::Nr1(wxCommandEvent& event) {
@@ -539,8 +532,10 @@ void MainFrame::Nr0(wxCommandEvent& event) {
 	ekranas->SetLabel(skaicius);
 }
 void MainFrame::SudetiesMygtukas(wxCommandEvent& event) {
-
-	if (!skaicius.empty() && Operatorius(skaicius.back())) { // Musu kodas tikrina ar tai yra operatorius ir ar skaiciai nera tusti. Jei tai operatorius neprides daugiau +, jei norim kita operatoriu apkeisti su + tada back pagalba apkeis.
+	
+	int operatoriausPozicija = skaicius.find_last_of("+-x÷%");
+	
+	if (operatoriausPozicija != string::npos && operatoriausPozicija == skaicius.size() - 1) { 
 		skaicius.back() = '+';
 	}
 	else {
@@ -551,7 +546,9 @@ void MainFrame::SudetiesMygtukas(wxCommandEvent& event) {
 }
 void MainFrame::AtimtiesMygtukas(wxCommandEvent& event) {
 
-	if (!skaicius.empty() && Operatorius(skaicius.back())) {
+	int operatoriausPozicija = skaicius.find_last_of("+-x÷%");
+
+	if (operatoriausPozicija != string::npos && operatoriausPozicija == skaicius.size() - 1) {
 		skaicius.back() = '-';
 	}
 	else {
@@ -560,7 +557,9 @@ void MainFrame::AtimtiesMygtukas(wxCommandEvent& event) {
 	ekranas->SetLabel(skaicius);
 }
 void MainFrame::DaugybosMygtukas(wxCommandEvent& event) {
-	if (!skaicius.empty() && Operatorius(skaicius.back())) {
+	int operatoriausPozicija = skaicius.find_last_of("+-x÷%");
+
+	if (operatoriausPozicija != string::npos && operatoriausPozicija == skaicius.size() - 1) {
 		skaicius.back() = 'x';
 	}
 	else {
@@ -570,7 +569,9 @@ void MainFrame::DaugybosMygtukas(wxCommandEvent& event) {
 }
 void MainFrame::DalybosMygtukas(wxCommandEvent& event) {
 
-	if (!skaicius.empty() && Operatorius(skaicius.back())) {
+	int operatoriausPozicija = skaicius.find_last_of("+-x÷%");
+
+	if (operatoriausPozicija != string::npos && operatoriausPozicija == skaicius.size() - 1) {
 		skaicius.back() = '÷';
 	}
 	else {
@@ -580,18 +581,19 @@ void MainFrame::DalybosMygtukas(wxCommandEvent& event) {
 }
 void MainFrame::ProcentuMygtukas(wxCommandEvent& event)
 {
+	int operatoriausPozicija = skaicius.find_last_of("+-x÷%");
 
 	if (skaicius.find("%") != string::npos)
 	{
 		return;
 	}
 
-	if (!skaicius.empty() && Operatorius(skaicius.back()))
-	{
+	
+
+	if (operatoriausPozicija != string::npos && operatoriausPozicija == skaicius.size() - 1) {
 		skaicius.back() = '%';
 	}
-	else
-	{
+	else {
 		skaicius += "%";
 	}
 
@@ -617,9 +619,19 @@ void MainFrame::VisosFunkcijosSalinimoMygtukas(wxCommandEvent& event) {
 void MainFrame::SakniesMygtukas(wxCommandEvent& event)
 {
 
-	int PaskutinisOperatorius = skaicius.find_last_of("+-x÷");
+	int PaskutinisOperatorius = skaicius.find_last_of("+-x÷%");
 
 	string PakeistinisSkaicius;
+
+	if (PaskutinisOperatorius != string::npos)
+	{
+		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
+
+		if (PakeistinisSkaicius.empty() || !isdigit(PakeistinisSkaicius.back()))
+		{
+			return;
+		}
+	}
 
 	if (PaskutinisOperatorius != string::npos)
 	{
@@ -641,9 +653,19 @@ void MainFrame::SakniesMygtukas(wxCommandEvent& event)
 void MainFrame::SkaiciausKelimoKvadratuMygtukas(wxCommandEvent& event)
 {
 
-	int PaskutinisOperatorius = skaicius.find_last_of("+-x÷");
+	int PaskutinisOperatorius = skaicius.find_last_of("+-x÷%");
 
 	string PakeistinisSkaicius;
+
+	if (PaskutinisOperatorius != string::npos)
+	{
+		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
+
+		if (PakeistinisSkaicius.empty() || !isdigit(PakeistinisSkaicius.back()))
+		{
+			return;
+		}
+	}
 
 	if (PaskutinisOperatorius != string::npos)
 	{
@@ -665,9 +687,19 @@ void MainFrame::SkaiciausKelimoKvadratuMygtukas(wxCommandEvent& event)
 void MainFrame::SinusoMygtukas(wxCommandEvent& event)
 {
 
-	int PaskutinisOperatorius = skaicius.find_last_of("+-x÷");
+	int PaskutinisOperatorius = skaicius.find_last_of("+-x÷%");
 
 	string PakeistinisSkaicius;
+
+	if (PaskutinisOperatorius != string::npos)
+	{
+		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
+
+		if (PakeistinisSkaicius.empty() || !isdigit(PakeistinisSkaicius.back()))
+		{
+			return;
+		}
+	}
 
 	if (PaskutinisOperatorius != string::npos) {
 		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
@@ -688,9 +720,19 @@ void MainFrame::SinusoMygtukas(wxCommandEvent& event)
 void MainFrame::KosinusoMygtukas(wxCommandEvent& event)
 {
 
-	int PaskutinisOperatorius = skaicius.find_last_of("+-x÷");
+	int PaskutinisOperatorius = skaicius.find_last_of("+-x÷%");
 
 	string PakeistinisSkaicius;
+	
+	if (PaskutinisOperatorius != string::npos)
+	{
+		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
+
+		if (PakeistinisSkaicius.empty() || !isdigit(PakeistinisSkaicius.back()))
+		{
+			return;
+		}
+	}
 
 	if (PaskutinisOperatorius != string::npos)
 	{
@@ -710,9 +752,29 @@ void MainFrame::KosinusoMygtukas(wxCommandEvent& event)
 }
 void MainFrame::LogaritmoMygtukas(wxCommandEvent& event)
 {
-	int PaskutinisOperatorius = skaicius.find_last_of("+-x÷");
+	int PaskutinisOperatorius = skaicius.find_last_of("+-x÷%");
 
 	string PakeistinisSkaicius;
+
+	if (PaskutinisOperatorius != string::npos)
+	{
+		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
+
+		if (PakeistinisSkaicius.empty() || !isdigit(PakeistinisSkaicius.back()))
+		{
+			return;
+		}
+	}
+
+	if (PaskutinisOperatorius != string::npos)
+	{
+		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
+
+		if (PakeistinisSkaicius.empty() || !isdigit(PakeistinisSkaicius.back()))
+		{
+			return;
+		}
+	}
 
 	if (PaskutinisOperatorius != string::npos)
 	{
@@ -733,9 +795,19 @@ void MainFrame::LogaritmoMygtukas(wxCommandEvent& event)
 void MainFrame::TaskelioMygtukas(wxCommandEvent& event) {
 	//Ka reiskia string::npos - Tai yra speciali reikšmė, kurią funkcija grąžina tik tada, kai paieška nesėkminga(neranda ieškomo simbolio).
 	
-	int PaskutinisOperatorius = skaicius.find_last_of("+-x+"); // Sis kodas mums leis surasti paskutini operatoriu, kuris buvo naudojamas musu skaiciuotuve
+	int PaskutinisOperatorius = skaicius.find_last_of("+-x÷%"); // Sis kodas mums leis surasti paskutini operatoriu, kuris buvo naudojamas musu skaiciuotuve
 
 	string PakeistinisSkaicius; // Mums sis kintamasis reikalingas tam, kad apsibreztume skaiciu po operatoriaus pvz: 1,2 tada operatorius + ir tada musu pakeistinisskaicius 1,23
+
+	if (PaskutinisOperatorius != string::npos)
+	{
+		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
+
+		if (PakeistinisSkaicius.empty() || !isdigit(PakeistinisSkaicius.back()))
+		{
+			return;
+		}
+	}
 
 	if (skaicius.rfind("COS(") != string::npos && skaicius.rfind(")") != string::npos && (PaskutinisOperatorius == string::npos || PaskutinisOperatorius < skaicius.rfind(")")))
 	{
@@ -790,17 +862,20 @@ void MainFrame::LyguMygtukas(wxCommandEvent& event)
 
 	for (int i = 0; i <= skaicius.size(); i++)
 	{
-		if (i == skaicius.size() || Operatorius(skaicius[i]))
+		if (i == skaicius.size() || string("+-x÷%").find(skaicius[i]) != string::npos)
 		{
 			if (!skaiciusLaikinas.empty())
 			{
+
+				double LaikinasRezultatas = 0.0;
+
 				if (skaiciusLaikinas.find("SIN(") != string::npos)
 				{
 					int pradzia = skaiciusLaikinas.find("SIN(") + 4;
 					int pabaiga = skaiciusLaikinas.find(")", pradzia);
 					string sinArgumentas = skaiciusLaikinas.substr(pradzia, pabaiga - pradzia);
 					double Sin = stod(sinArgumentas);
-					rezultatas = sin(Sin * M_PI / 180);
+					LaikinasRezultatas = sin(Sin * M_PI / 180);
 				}
 				else if (skaiciusLaikinas.find("COS(") != string::npos)
 				{
@@ -808,7 +883,7 @@ void MainFrame::LyguMygtukas(wxCommandEvent& event)
 					int pabaiga = skaiciusLaikinas.find(")", pradzia);
 					string cosArgumentas = skaiciusLaikinas.substr(pradzia, pabaiga - pradzia);
 					double Cos = stod(cosArgumentas);
-					rezultatas = cos(Cos * M_PI / 180);
+					LaikinasRezultatas = cos(Cos * M_PI / 180);
 				}
 				else if (skaiciusLaikinas.find("SQRT(") != string::npos)
 				{
@@ -816,7 +891,7 @@ void MainFrame::LyguMygtukas(wxCommandEvent& event)
 					int pabaiga = skaiciusLaikinas.find(")", pradzia);
 					string sakniesArgumentas = skaiciusLaikinas.substr(pradzia, pabaiga - pradzia);
 					double Saknis = stod(sakniesArgumentas);
-					rezultatas = sqrt(Saknis);
+					LaikinasRezultatas = sqrt(Saknis);
 				}
 				else if (skaiciusLaikinas.find("POW(") != string::npos)
 				{
@@ -824,14 +899,14 @@ void MainFrame::LyguMygtukas(wxCommandEvent& event)
 					int pabaiga = skaiciusLaikinas.find(")", pradzia);
 					string KvadratoArgumentas = skaiciusLaikinas.substr(pradzia, pabaiga - pradzia);
 					double Kvadratas = stod(KvadratoArgumentas);
-					rezultatas = pow(Kvadratas, 2);
+					LaikinasRezultatas = pow(Kvadratas, 2);
 				}
 				else if (skaiciusLaikinas.find("LOG10(") != string::npos)
 				{
 					if (skaiciusLaikinas.find("LOG10(0)") != string::npos)
 					{
 						wxMessageBox("Nulis negali buti logaritme!");
-						rezultatas = 0;
+						LaikinasRezultatas = 0;
 					}
 					else
 					{
@@ -839,28 +914,27 @@ void MainFrame::LyguMygtukas(wxCommandEvent& event)
 						int pabaiga = skaiciusLaikinas.find(")", pradzia);
 						string LogaritmoArgumentas = skaiciusLaikinas.substr(pradzia, pabaiga - pradzia);
 						double Logoritmas = stod(LogaritmoArgumentas);
-						rezultatas = log10(Logoritmas);
+						LaikinasRezultatas = log10(Logoritmas);
 					}
 				}
 				else
 				{
-					double skaiciusDabartinis = stod(skaiciusLaikinas);
+					LaikinasRezultatas = stod(skaiciusLaikinas);
+				}
 
-					
-					
 					if (paskutinisOperatorius == '+')
 					{
-						rezultatas += skaiciusDabartinis;
+						rezultatas += LaikinasRezultatas;
 					}
 							
 					else if (paskutinisOperatorius == '-')
 					{
-						rezultatas -= skaiciusDabartinis;
+						rezultatas -= LaikinasRezultatas;
 					}
 							
 					else if (paskutinisOperatorius == 'x')
 					{
-						rezultatas *= skaiciusDabartinis;
+						rezultatas *= LaikinasRezultatas;
 					}
 							
 					else if (paskutinisOperatorius == '÷')
@@ -872,17 +946,15 @@ void MainFrame::LyguMygtukas(wxCommandEvent& event)
 						}
 						else // Jei salyga neteisinga darbas tesiasi toliau.
 						{
-						rezultatas /= skaiciusDabartinis;
+						rezultatas /= LaikinasRezultatas;
 						}
 					}
 							
 					else if (paskutinisOperatorius == '%')
 					{
-						rezultatas *= skaiciusDabartinis / 100;
+						rezultatas *= LaikinasRezultatas / 100;
 					}
 							
-					
-				}
 
 				skaiciusLaikinas = "";
 			}
