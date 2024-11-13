@@ -956,7 +956,7 @@ void MainFrame::LyguMygtukas(wxCommandEvent& event)
 					}
 							
 
-				skaiciusLaikinas = "";
+					skaiciusLaikinas.clear();
 			}
 
 			if (i < skaicius.size())
