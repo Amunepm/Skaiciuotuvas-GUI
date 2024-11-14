@@ -8,10 +8,8 @@
 
 using namespace std;
 
-// Sitas zenklas "->" turi reiksme norint pasiekti pointerius arba rodykle, pvz cia: choice->Select(0); mes norime pasiekti choice pointeri, kad galetume priskirti jam selecta
-
 MainFrame::MainFrame(const wxString& Skaiciuotuvas): wxFrame(nullptr, wxID_ANY, Skaiciuotuvas) {
-	wxPanel* panel = new wxPanel(this); // Si eilute skirta tam, kad mygtukas ir kitos sio frame dalys nebutu per visa ekrana
+	wxPanel* panel = new wxPanel(this);
 
 	//Tekstas
 
@@ -137,25 +135,9 @@ string skaicius = "0";
 
 void MainFrame::Nr1(wxCommandEvent& event) {
 
-	int operatoriausPozicija = skaicius.find_last_of("+-x÷");
+	int operatoriausPozicija = skaicius.find_last_of("+-x÷%");
 
-	if (skaicius.rfind("COS(") != string::npos && skaicius.rfind(")") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("SIN(") != string::npos && skaicius.rfind(")") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}																																													// Visos sios salygos tikrina ar jau yra parasytas sin,cos,pow,sqrt jei yra, tai tada neleistu daugiau parasyti arba tik po paskutinio operatoriaus
-	else if (skaicius.rfind("POW(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("SQRT(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("LOG10(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
+	if ((skaicius.find("COS(") != string::npos || skaicius.find("SIN(") != string::npos || skaicius.find("POW(") != string::npos || skaicius.find("SQRT(") != string::npos || skaicius.find("LOG10(") != string::npos) && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
 	{
 		return;
 	}
@@ -180,23 +162,7 @@ void MainFrame::Nr2(wxCommandEvent& event) {
 
 	int operatoriausPozicija = skaicius.find_last_of("+-x÷");
 
-	if (skaicius.rfind("COS(") != string::npos && skaicius.rfind(")") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("SIN(") != string::npos && skaicius.rfind(")") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("POW(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("SQRT(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("LOG10(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
+	if ((skaicius.find("COS(") != string::npos || skaicius.find("SIN(") != string::npos || skaicius.find("POW(") != string::npos || skaicius.find("SQRT(") != string::npos || skaicius.find("LOG10(") != string::npos) && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
 	{
 		return;
 	}
@@ -219,23 +185,7 @@ void MainFrame::Nr3(wxCommandEvent& event) {
 
 	int operatoriausPozicija = skaicius.find_last_of("+-x÷");
 
-	if (skaicius.rfind("COS(") != string::npos && skaicius.rfind(")") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("SIN(") != string::npos && skaicius.rfind(")") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("POW(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("SQRT(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("LOG10(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
+	if ((skaicius.find("COS(") != string::npos || skaicius.find("SIN(") != string::npos || skaicius.find("POW(") != string::npos || skaicius.find("SQRT(") != string::npos || skaicius.find("LOG10(") != string::npos) && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
 	{
 		return;
 	}
@@ -258,27 +208,7 @@ void MainFrame::Nr4(wxCommandEvent& event) {
 
 	int operatoriausPozicija = skaicius.find_last_of("+-x÷");
 
-	if (skaicius.rfind("COS(") != string::npos && skaicius.rfind(")") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("SIN(") != string::npos && skaicius.rfind(")") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("POW(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("SQRT(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("LOG(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("LOG10(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
+	if ((skaicius.find("COS(") != string::npos || skaicius.find("SIN(") != string::npos || skaicius.find("POW(") != string::npos || skaicius.find("SQRT(") != string::npos || skaicius.find("LOG10(") != string::npos) && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
 	{
 		return;
 	}
@@ -301,23 +231,7 @@ void MainFrame::Nr5(wxCommandEvent& event) {
 
 	int operatoriausPozicija = skaicius.find_last_of("+-x÷");
 
-	if (skaicius.rfind("COS(") != string::npos && skaicius.rfind(")") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("SIN(") != string::npos && skaicius.rfind(")") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("POW(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("SQRT(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("LOG10(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
+	if ((skaicius.find("COS(") != string::npos || skaicius.find("SIN(") != string::npos || skaicius.find("POW(") != string::npos || skaicius.find("SQRT(") != string::npos || skaicius.find("LOG10(") != string::npos) && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
 	{
 		return;
 	}
@@ -340,23 +254,7 @@ void MainFrame::Nr6(wxCommandEvent& event) {
 
 	int operatoriausPozicija = skaicius.find_last_of("+-x÷");
 
-	if (skaicius.rfind("COS(") != string::npos && skaicius.rfind(")") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("SIN(") != string::npos && skaicius.rfind(")") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("POW(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("SQRT(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("LOG10(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
+	if ((skaicius.find("COS(") != string::npos || skaicius.find("SIN(") != string::npos || skaicius.find("POW(") != string::npos || skaicius.find("SQRT(") != string::npos || skaicius.find("LOG10(") != string::npos) && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
 	{
 		return;
 	}
@@ -379,23 +277,7 @@ void MainFrame::Nr7(wxCommandEvent& event) {
 
 	int operatoriausPozicija = skaicius.find_last_of("+-x÷");
 
-	if (skaicius.rfind("COS(") != string::npos && skaicius.rfind(")") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("SIN(") != string::npos && skaicius.rfind(")") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("POW(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("SQRT(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("LOG10(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
+	if ((skaicius.find("COS(") != string::npos || skaicius.find("SIN(") != string::npos || skaicius.find("POW(") != string::npos || skaicius.find("SQRT(") != string::npos || skaicius.find("LOG10(") != string::npos) && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
 	{
 		return;
 	}
@@ -418,23 +300,7 @@ void MainFrame::Nr8(wxCommandEvent& event) {
 
 	int operatoriausPozicija = skaicius.find_last_of("+-x÷");
 
-	if (skaicius.rfind("COS(") != string::npos && skaicius.rfind(")") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("SIN(") != string::npos && skaicius.rfind(")") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("POW(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("SQRT(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("LOG10(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
+	if ((skaicius.find("COS(") != string::npos || skaicius.find("SIN(") != string::npos || skaicius.find("POW(") != string::npos || skaicius.find("SQRT(") != string::npos || skaicius.find("LOG10(") != string::npos) && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
 	{
 		return;
 	}
@@ -457,23 +323,7 @@ void MainFrame::Nr9(wxCommandEvent& event) {
 
 	int operatoriausPozicija = skaicius.find_last_of("+-x÷");
 
-	if (skaicius.rfind("COS(") != string::npos && skaicius.rfind(")") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("SIN(") != string::npos && skaicius.rfind(")") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("POW(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("SQRT(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("LOG10(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
+	if ((skaicius.find("COS(") != string::npos || skaicius.find("SIN(") != string::npos || skaicius.find("POW(") != string::npos || skaicius.find("SQRT(") != string::npos || skaicius.find("LOG10(") != string::npos) && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
 	{
 		return;
 	}
@@ -496,23 +346,7 @@ void MainFrame::Nr0(wxCommandEvent& event) {
 
 	int operatoriausPozicija = skaicius.find_last_of("+-x÷");
 
-	if (skaicius.rfind("COS(") != string::npos && skaicius.rfind(")") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("SIN(") != string::npos && skaicius.rfind(")") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("POW(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("SQRT(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("LOG10(") != string::npos && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
+	if ((skaicius.find("COS(") != string::npos || skaicius.find("SIN(") != string::npos || skaicius.find("POW(") != string::npos || skaicius.find("SQRT(") != string::npos || skaicius.find("LOG10(") != string::npos) && (operatoriausPozicija == string::npos || operatoriausPozicija < skaicius.rfind(")")))
 	{
 		return;
 	}
@@ -557,6 +391,7 @@ void MainFrame::AtimtiesMygtukas(wxCommandEvent& event) {
 	ekranas->SetLabel(skaicius);
 }
 void MainFrame::DaugybosMygtukas(wxCommandEvent& event) {
+
 	int operatoriausPozicija = skaicius.find_last_of("+-x÷%");
 
 	if (operatoriausPozicija != string::npos && operatoriausPozicija == skaicius.size() - 1) {
@@ -583,7 +418,7 @@ void MainFrame::ProcentuMygtukas(wxCommandEvent& event)
 {
 	int operatoriausPozicija = skaicius.find_last_of("+-x÷%");
 
-	if (skaicius.find("%") != string::npos)
+	if (skaicius.find("%") != string::npos) // Grizti prie sito kodo(del mat funkciju)
 	{
 		return;
 	}
@@ -601,13 +436,13 @@ void MainFrame::ProcentuMygtukas(wxCommandEvent& event)
 }
 void MainFrame::SkaiciausPasalinimoMygtukas(wxCommandEvent& event) {
 
-	if (skaicius.size() > 1) // tikriname ar skaicius nera lygus 0
+	if (skaicius.size() > 1)
 	{
-		skaicius.pop_back(); // Tada saliname ta skaiciu naudodami pop_back - pop_back funkcija pasalina paskutini elementa
+		skaicius.pop_back();
 	}
 	else
 	{
-		skaicius = "0"; // Si eilute nubrezia jei tik buna vienas skaicius arba nulis. Tarkime jei skaicius bus 5 tada is 5 gausis 0. O jei nulis tada gausis 0
+		skaicius = "0";
 	}
 	ekranas->SetLabel(skaicius);
 }
@@ -700,11 +535,8 @@ void MainFrame::SinusoMygtukas(wxCommandEvent& event)
 			return;
 		}
 	}
-
-	if (PaskutinisOperatorius != string::npos) {
-		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
-	}
-	else {
+	else 
+	{
 		PakeistinisSkaicius = skaicius;
 	}
 
@@ -766,20 +598,6 @@ void MainFrame::LogaritmoMygtukas(wxCommandEvent& event)
 		}
 	}
 
-	if (PaskutinisOperatorius != string::npos)
-	{
-		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
-
-		if (PakeistinisSkaicius.empty() || !isdigit(PakeistinisSkaicius.back()))
-		{
-			return;
-		}
-	}
-
-	if (PaskutinisOperatorius != string::npos)
-	{
-		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
-	}
 	else
 	{
 		PakeistinisSkaicius = skaicius;
@@ -799,6 +617,11 @@ void MainFrame::TaskelioMygtukas(wxCommandEvent& event) {
 
 	string PakeistinisSkaicius; // Mums sis kintamasis reikalingas tam, kad apsibreztume skaiciu po operatoriaus pvz: 1,2 tada operatorius + ir tada musu pakeistinisskaicius 1,23
 
+	if ((skaicius.find("COS(") != string::npos || skaicius.find("SIN(") != string::npos || skaicius.find("POW(") != string::npos || skaicius.find("SQRT(") != string::npos || skaicius.find("LOG10(") != string::npos) && (PaskutinisOperatorius == string::npos || PaskutinisOperatorius < skaicius.rfind(")")))
+	{
+		return;
+	}
+	
 	if (PaskutinisOperatorius != string::npos)
 	{
 		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
@@ -808,49 +631,16 @@ void MainFrame::TaskelioMygtukas(wxCommandEvent& event) {
 			return;
 		}
 	}
-
-	if (skaicius.rfind("COS(") != string::npos && skaicius.rfind(")") != string::npos && (PaskutinisOperatorius == string::npos || PaskutinisOperatorius < skaicius.rfind(")")))
+	else 
 	{
-		return;
-	}
-	else if (skaicius.rfind("SIN(") != string::npos && skaicius.rfind(")") != string::npos && (PaskutinisOperatorius == string::npos || PaskutinisOperatorius < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("POW(") != string::npos && (PaskutinisOperatorius == string::npos || PaskutinisOperatorius < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("SQRT(") != string::npos && (PaskutinisOperatorius == string::npos || PaskutinisOperatorius < skaicius.rfind(")")))
-	{
-		return;
-	}
-	else if (skaicius.rfind("LOG10(") != string::npos && (PaskutinisOperatorius == string::npos || PaskutinisOperatorius < skaicius.rfind(")")))
-	{
-		return;
-	}
 
-	// Ši sąlyga tikrina, ar paskutinis operatorius buvo rastas eilutėje.
-	if (PaskutinisOperatorius != string::npos) { // Naudojame !=, nes tai reiškia "operatorius rastas". Jei būtų ==, tai reikštų, kad operatorius nerastas, nes npos žymi "nerasta" reikšmę.
 
-		// Jei operatorius rastas, surandame skaičiaus dalį po paskutinio operatoriaus.
-		// Pvz.: eilutėje "1.23 +", operatoriaus "+" pozicija bus 5. 
-		// Naudojame PaskutinisOperatorius + 1 tam, kad pradėtume nuo pirmo simbolio po operatoriaus ("+"), t.y. skaičius po jo.
-		PakeistinisSkaicius = skaicius.substr(PaskutinisOperatorius + 1);
-
-	}
-	else {
-
-		
 		PakeistinisSkaicius = skaicius; // Jei operatorius nerastas, tada visą eilutę (skaicius) laikome kaip vieną skaičių. Kadangi nėra operatoriaus, su juo dirbsime kaip su vienu skaičiumi, todėl tikriname, ar jame yra taškas.
 	}
-
-	// Ši sąlyga skirta patikrinti, ar dabartiniame skaičiuje po operatoriaus jau yra taškas
 	if (PakeistinisSkaicius.find('.') == string::npos) {  // Čia `npos` reiškia, kad paieškos rezultatas - "nerasta", todėl, jei taškas nerastas, sąlyga suveiks
-		 //Jei taško nėra, leidžiame jį pridėti prie dabartinio skaičiaus
+		//Jei taško nėra, leidžiame jį pridėti prie dabartinio skaičiaus
 		skaicius += ".";
 	}
-
 
 	ekranas->SetLabel(skaicius);
 }
