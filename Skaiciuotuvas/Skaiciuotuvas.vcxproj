@@ -19,12 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MainFrame.h" />
-    <ClInclude Include="Programele.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="MainFrame.cpp" />
     <ClCompile Include="Programele.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MainVoid.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

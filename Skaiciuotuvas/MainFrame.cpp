@@ -1,4 +1,4 @@
-﻿#include "MainFrame.h"
+﻿#include "MainVoid.h"
 #include <wx/wx.h>
 #include <iostream>
 #include <string>
@@ -418,7 +418,7 @@ void MainFrame::ProcentuMygtukas(wxCommandEvent& event)
 {
 	int operatoriausPozicija = skaicius.find_last_of("+-x÷%");
 
-	if (skaicius.find("%") != string::npos) // Grizti prie sito kodo(del mat funkciju)
+	if (skaicius.find("%") != string::npos)
 	{
 		return;
 	}
