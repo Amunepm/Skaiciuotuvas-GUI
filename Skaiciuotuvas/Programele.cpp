@@ -1,5 +1,4 @@
-#include "Programele.h"
-#include "MainFrame.h"
+#include "MainVoid.h"
 #include <wx/wx.h>
 
 wxIMPLEMENT_APP(Programele); // Sita kodo eilute yra skirta tam, kad parodytu kas valdys programos vieta(siuo momentu tai bus ("Programele"). Be jos programa neveiktu
