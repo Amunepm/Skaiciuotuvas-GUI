@@ -1,4 +1,4 @@
-#include "MainFrame.h"
+#include "MainVoid.h"
 #include <wx/wx.h>
 class MainFrame : public wxFrame
 {
