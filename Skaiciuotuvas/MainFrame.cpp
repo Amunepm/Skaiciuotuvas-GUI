@@ -1,4 +1,5 @@
-﻿#include "MainVoid.h"
+﻿#include "Programele.h"
+#include "MainVoid.h"
 #include <wx/wx.h>
 #include <iostream>
 #include <string>
